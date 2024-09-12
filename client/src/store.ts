@@ -10,12 +10,14 @@ import { thunk } from "redux-thunk";
 import { getAllPizzasReducer } from "./reducers/pizzaReducer";
 import { cartReducer } from "./reducers/cartReducer";
 import { registerUserReducer, loginUserReducer } from "./reducers/userReducer";
+import { placeOrderReducer } from "./reducers/orderReducer";
 
 const finalReducer = combineReducers({
   getAllPizzasReducer: getAllPizzasReducer,
   cartReducer: cartReducer,
   registerUserReducer: registerUserReducer,
   loginUserReducer: loginUserReducer,
+  placeOrderReducer: placeOrderReducer,
 });
 
 //#region initial state
