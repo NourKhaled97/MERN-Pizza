@@ -54,3 +54,13 @@ select {
   margin: 5px;
   cursor: pointer;
 }
+
+input {
+  margin-top: 10px !important;
+  box-shadow: none !important;
+}
+
+.dropdownButton{
+  background-color: transparent !important;
+  color: black !important;
+}

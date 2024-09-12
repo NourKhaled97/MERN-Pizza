@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Pizza from '../components/Pizza';
 import { getAllPizzas } from '../actions/pizzaActions';
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 export default function HomeScreen() {
     const dispatch = useDispatch<any>();
@@ -12,15 +14,16 @@ export default function HomeScreen() {
 
     useEffect(() => {
         dispatch(getAllPizzas())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
         <div>
             <div className='row justify-content-center m-3'>
                 {loading ?
-                    (<h1>Loading ...</h1>)
+                    (<Loading />)
                     : error ?
-                        (<h1>Something went wrong</h1>)
+                        (<Error error="Something went wrong" />)
                         : (
                             pizzas && pizzas.map((pizza: any) => {
                                 return (

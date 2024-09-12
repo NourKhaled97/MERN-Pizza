@@ -1,29 +1,40 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useSelector } from "react-redux"
+import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux"
+import { logoutUser } from "../actions/userAction";
 
-export default function Navbar() {
+export default function NavbarComponent() {
     const cartState = useSelector((state: any) => state.cartReducer);
+    const userState = useSelector((state: any) => state.loginUserReducer);
 
     const { cartItems } = cartState;
+    const { currentUser } = userState;
+
+    const dispatch = useDispatch<any>();
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg shadow-lg p-3 mb-5 bg-white rounded">
-                <a className="navbar-brand" href="/">SHEY PIZZA</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ms-auto">
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Login</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/cart">Cart {cartItems.length}</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <Navbar expand="lg" className="bg-body-tertiary shadow-lg p-3 mb-5 bg-white rounded">
+                <Navbar.Brand href="/">SHEY PIZZA</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ms-auto">
+                        {currentUser
+                            ? (
+                                <NavDropdown title={currentUser.name} id="basic-nav-dropdown">
+                                    <NavDropdown.Item href="/">Orders</NavDropdown.Item>
+                                    <NavDropdown.Item>
+                                        <li onClick={() => dispatch(logoutUser())}>Logout</li>
+                                    </NavDropdown.Item>
+                                </NavDropdown>
+                            )
+                            : (
+                                <Nav.Link href="/login">Login</Nav.Link>
+                            )}
+                        <Nav.Link href="/cart">Cart {cartItems.length}</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
         </div>
     )
 }
