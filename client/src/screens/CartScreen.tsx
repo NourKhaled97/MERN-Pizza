@@ -52,7 +52,7 @@ export default function CartScreen() {
                     })}
                 </div>
 
-                <div className="col-md-4" style={{ textAlign: 'right' }}>
+                <div className="col-md-5" style={{ textAlign: 'right' }}>
                     <h2 style={{ fontSize: '45px' }}>Subtotal: {subTotal}$</h2>
                     <Checkout subtotal={subTotal} />
                 </div>

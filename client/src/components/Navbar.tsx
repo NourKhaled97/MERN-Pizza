@@ -22,7 +22,7 @@ export default function NavbarComponent() {
                         {currentUser
                             ? (
                                 <NavDropdown title={currentUser.name} id="basic-nav-dropdown">
-                                    <NavDropdown.Item href="/">Orders</NavDropdown.Item>
+                                    <NavDropdown.Item href="/orders">Orders</NavDropdown.Item>
                                     <NavDropdown.Item>
                                         <li onClick={() => dispatch(logoutUser())}>Logout</li>
                                     </NavDropdown.Item>
