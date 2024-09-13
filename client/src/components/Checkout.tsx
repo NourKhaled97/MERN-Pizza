@@ -16,10 +16,10 @@ export default function Checkout(props: { subtotal: number }) {
                 amount={props.subtotal * 100}
                 shippingAddress
                 token={tokenHandler}
-                currency='inr'
+                currency='INR'
                 label="Pay Now"
                 ComponentClass="btn"
-                stripeKey="pk_test_51PyBuHGBRsgl6h5sv77ENRUN81mCpiPvY4WCiPI2JN5U4xz2lLydEFOYTUXxV2Avwt9T0cdX0mzJaiFMIamlMzRL00kYcxOLUo"
+                stripeKey={process.env.REACT_APP_PUBLIC_KEY || ""}
             />
         </div>
     )
