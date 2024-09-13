@@ -4,6 +4,7 @@ import Pizza from '../components/Pizza';
 import { getAllPizzas } from '../actions/pizzaActions';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
+import Filter from '../components/Filter';
 
 export default function HomeScreen() {
     const dispatch = useDispatch<any>();
@@ -14,12 +15,15 @@ export default function HomeScreen() {
 
     useEffect(() => {
         dispatch(getAllPizzas())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
         <div>
+            <Filter />
+
             <div className='row justify-content-center m-3'>
+
                 {loading ?
                     (<Loading />)
                     : error ?
