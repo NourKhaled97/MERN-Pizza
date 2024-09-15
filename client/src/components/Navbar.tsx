@@ -23,6 +23,7 @@ export default function NavbarComponent() {
                             ? (
                                 <NavDropdown title={currentUser.name} id="basic-nav-dropdown">
                                     <NavDropdown.Item href="/orders">Orders</NavDropdown.Item>
+                                    {currentUser.isAdmin && <NavDropdown.Item href="/admin">Admin</NavDropdown.Item>}
                                     <NavDropdown.Item>
                                         <li onClick={() => dispatch(logoutUser())}>Logout</li>
                                     </NavDropdown.Item>

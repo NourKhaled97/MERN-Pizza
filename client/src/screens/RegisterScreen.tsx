@@ -4,6 +4,7 @@ import { registerUser } from '../actions/userAction';
 import Loading from '../components/Loading';
 import Success from '../components/Success';
 import Error from '../components/Error';
+import { Link } from 'react-router-dom';
 
 export default function RegisterScreen() {
   const [name, setName] = useState('');
@@ -81,8 +82,8 @@ export default function RegisterScreen() {
               REGISTER
             </button>
             <br />
-            <a style={{ color: 'black' }}
-              href='/login'>Click here to login</a>
+            <Link style={{ color: 'black' }}
+              to='/login'>Click here to login</Link>
           </div>
         </div>
       </div>

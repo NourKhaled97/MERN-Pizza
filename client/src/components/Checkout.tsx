@@ -12,7 +12,6 @@ export default function Checkout(props: { subtotal: number }) {
     const { loading, error, success } = orderState
 
     const tokenHandler = (token: any) => {
-        console.log(token);
         dispatch(placeOrder(token, props.subtotal))
     }
 

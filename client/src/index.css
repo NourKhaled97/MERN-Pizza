@@ -36,7 +36,7 @@ h1 {
 
 select {
   box-shadow: none !important;
-  border-color: black !important;
+  /* border-color: black !important; */
 }
 
 .fa-minus {
@@ -54,13 +54,40 @@ select {
   margin: 5px;
   cursor: pointer;
 }
+.fa-edit {
+  margin: 5px;
+  cursor: pointer;
+}
 
 input {
   margin-top: 10px !important;
   box-shadow: none !important;
 }
 
-.dropdownButton{
+.dropdownButton {
   background-color: transparent !important;
   color: black !important;
+}
+
+.adminFunctions {
+  padding: 10px;
+  background-color: rgb(1, 1, 77);
+}
+.adminFunctions li {
+  list-style-type: none !important;
+  display: inline !important;
+}
+.adminFunctions li a {
+  color: white !important;
+  padding: 20px;
+  text-decoration: none;
+}
+.adminFunctions li a:hover {
+  text-decoration: underline;
+}
+
+td,
+th,
+tr {
+  text-align: left;
 }

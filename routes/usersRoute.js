@@ -36,6 +36,25 @@ router
     } catch (error) {
       return res.status(400).json({ message: error });
     }
+  })
+  .get("/getallusers", async (req, res) => {
+    try {
+      const users = await User.find({}).sort({ _id: -1 });
+      res.send(users);
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
+    }
+  })
+  .delete("/deleteuser", async (req, res) => {
+    const { userId } = req.query;
+
+    try {
+      await User.findOneAndDelete({ _id: userId });
+
+      res.send("User deleted successfully");
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
+    }
   });
 
 module.exports = router;

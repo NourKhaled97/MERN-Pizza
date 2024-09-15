@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../actions/userAction';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
+import { Link } from 'react-router-dom';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
@@ -61,8 +62,8 @@ export default function LoginScreen() {
               LOGIN
             </button>
             <br />
-            <a style={{ color: 'black' }}
-              href='/register'>Click here to register</a>
+            <Link style={{ color: 'black' }}
+              to='/register'>Click here to register</Link>
           </div>
         </div>
       </div>

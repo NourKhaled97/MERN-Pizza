@@ -64,6 +64,28 @@ router
     } catch (error) {
       return res.status(400).json({ message: error.message });
     }
+  })
+
+  .get("/getallorders", async (req, res) => {
+    try {
+      const orders = await Order.find({}).sort({ _id: -1 });
+      res.send(orders);
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
+    }
+  })
+
+  .post("/deliverorder", async (req, res) => {
+    const { orderId } = req.body;
+
+    try {
+      const order = await Order.findOne({ _id: orderId });
+      order.isDelivered = true;
+      await order.save();
+      res.send("Order Delivered");
+    } catch (error) {
+      return res.status(400).json({ message: error.message });
+    }
   });
 
 module.exports = router;

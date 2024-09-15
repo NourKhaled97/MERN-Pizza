@@ -7,12 +7,21 @@ import {
 } from "redux";
 import { thunk } from "redux-thunk";
 // import { composeWithDevTools } from "redux-devtools-extension";
-import { getAllPizzasReducer } from "./reducers/pizzaReducer";
+import {
+  getAllPizzasReducer,
+  addPizzaReducer,
+  editPizzaReducer,
+} from "./reducers/pizzaReducer";
 import { cartReducer } from "./reducers/cartReducer";
-import { registerUserReducer, loginUserReducer } from "./reducers/userReducer";
+import {
+  registerUserReducer,
+  loginUserReducer,
+  getAllUsersReducer,
+} from "./reducers/userReducer";
 import {
   placeOrderReducer,
   getUserOrdersReducer,
+  getAllOrdersReducer,
 } from "./reducers/orderReducer";
 
 const finalReducer = combineReducers({
@@ -22,6 +31,10 @@ const finalReducer = combineReducers({
   loginUserReducer: loginUserReducer,
   placeOrderReducer: placeOrderReducer,
   getUserOrdersReducer: getUserOrdersReducer,
+  addPizzaReducer: addPizzaReducer,
+  editPizzaReducer: editPizzaReducer,
+  getAllOrdersReducer: getAllOrdersReducer,
+  getAllUsersReducer: getAllUsersReducer,
 });
 
 //#region initial state
