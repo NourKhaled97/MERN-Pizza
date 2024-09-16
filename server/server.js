@@ -16,13 +16,14 @@ app.use(
     extended: true,
   })
 );
-app.use(
-  cors({
-    origin: ["https://mernsheypizza.vercel.app"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["https://mernsheypizza.vercel.app"],
+//     methods: ["POST", "GET", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
+app.use(cors())
 
 app.use("/api/pizzas", PizzasRoute);
 app.use("/api/users", UsersRoute);
