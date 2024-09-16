@@ -53,5 +53,5 @@
   "devDependencies": {
     "@types/aos": "^3.0.7"
   },
-  "proxy": "http://localhost:5000/"
+  "proxy": "https://mern-pizza-api.vercel.app/"
 }
