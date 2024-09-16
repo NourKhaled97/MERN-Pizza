@@ -22,34 +22,36 @@ export default function UsersList() {
       {loading && <Loading />}
       {error && <Error error='Something went wrong' />}
 
-      <table className="table table-striped table-bordered">
-        <thead className="thead-dark">
-          <tr>
-            <th>User Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
+      <div className="table-responsive">
+        <table className="table table-striped table-bordered">
+          <thead className="thead-dark">
+            <tr>
+              <th>User Id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          {users && users.map((user: any) => {
-            return (
-              <tr key={user._id}>
-                <td>{user._id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>
-                  <i
-                    className="fa fa-trash m-1"
-                    onClick={() => { dispatch(deleteUser(user._id)) }}
-                  ></i>
-                </td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
+          <tbody>
+            {users && users.map((user: any) => {
+              return (
+                <tr key={user._id}>
+                  <td>{user._id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>
+                    <i
+                      className="fa fa-trash m-1"
+                      onClick={() => { dispatch(deleteUser(user._id)) }}
+                    ></i>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

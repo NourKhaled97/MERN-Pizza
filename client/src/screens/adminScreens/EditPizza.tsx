@@ -59,16 +59,15 @@ export default function EditPizza() {
         large: largePrice,
       }
     }
-    
+
     dispatch(editPizza(pizza));
   }
 
   return (
     <div>
       <h1>Edit Pizza</h1>
-      <h1>pizza id= {params.pizzaId}</h1>
 
-      <div style={{ textAlign: 'left' }}>
+      <div style={{ textAlign: 'left' }} className="shadow-lg p-3 mb-5 bg-white rounded">
 
         {loading && <Loading />}
         {success && <Success message='Pizza edited successfully' />}

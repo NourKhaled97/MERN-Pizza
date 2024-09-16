@@ -31,7 +31,7 @@ export default function HomeScreen() {
                         : (
                             pizzas && pizzas.map((pizza: any) => {
                                 return (
-                                    <div key={pizza._id} className='col-md-4'>
+                                    <div key={pizza._id} className='col-md-6 col-lg-4'>
                                         <Pizza pizza={pizza} />
                                     </div>
                                 )

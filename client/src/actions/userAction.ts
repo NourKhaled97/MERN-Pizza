@@ -17,7 +17,6 @@ export const loginUser = (user: any) => async (dispatch: any) => {
 
   try {
     const response = await axios.post("/api/users/login", user);
-    console.log(response);
     dispatch({ type: "USER_LOGIN_SUCCESS", payload: response.data });
     localStorage.setItem("currentUser", JSON.stringify(response.data));
     window.location.href = "/";
@@ -36,7 +35,6 @@ export const getAllUsers = () => async (dispatch: any, getState: any) => {
 
   try {
     const response = await axios.get("/api/users/getallusers");
-    console.log(response);
     dispatch({ type: "GET_ALL_USERS_SUCCESS", payload: response.data });
   } catch (err) {
     dispatch({ type: "GET_ALL_USERS_FAILED", payload: err });

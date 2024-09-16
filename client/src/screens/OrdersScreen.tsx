@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserOrders } from "../actions/orderAction";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
+import AOS from 'aos';
 
 export default function OrdersScreen() {
+    AOS.init();
 
     const ordersState = useSelector((state: any) => state.getUserOrdersReducer);
     const { loading, error, orders } = ordersState;
@@ -27,7 +29,12 @@ export default function OrdersScreen() {
                 {error && <Error error='Something went wrong' />}
 
                 {orders && orders.map((order: any) => {
-                    return <div key={order._id} className="col-md-8 m-2 p-1" style={{ backgroundColor: 'red', color: "white" }}>
+                    return <div
+                        data-aos='fade-down'
+                        key={order._id}
+                        className="col-md-8 m-2 p-1"
+                        style={{ backgroundColor: 'red', color: "white" }}
+                    >
                         <div className="flex-container">
                             <div style={{ textAlign: 'left' }} className="w-100 m-1">
                                 <h2 style={{ fontSize: '25px' }}>Items</h2>

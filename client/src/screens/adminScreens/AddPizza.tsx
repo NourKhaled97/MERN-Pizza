@@ -43,7 +43,7 @@ export default function AddPizza() {
     <div>
       <h1>Add Pizza</h1>
       
-      <div style={{ textAlign: 'left' }}>
+      <div style={{ textAlign: 'left' }} className="shadow-lg p-3 mb-5 bg-white rounded">
 
         {loading && <Loading />}
         {success && <Success message='New Pizza added successfully' />}
