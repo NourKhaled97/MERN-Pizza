@@ -50,7 +50,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000/",
+  "proxy": "https://mernsheypizza.vercel.app/",
   "devDependencies": {
     "@types/aos": "^3.0.7"
   }

@@ -33,7 +33,7 @@ export default function RegisterScreen() {
   }
 
   return (
-    <div>
+    <div className='register'>
       <div className="row justify-content-center mt-5">
         <div className="col-md-5 mt-5 shadow-lg p-3 mb-5 bg-white rounded" style={{ textAlign: 'left' }}>
 

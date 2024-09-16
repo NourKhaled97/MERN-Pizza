@@ -30,7 +30,7 @@ export default function LoginScreen() {
   }
 
   return (
-    <div>
+    <div className='login'>
       <div className="row justify-content-center mt-5">
         <div className="col-md-5 mt-5 shadow-lg p-3 mb-5 bg-white rounded" style={{ textAlign: 'left' }}>
           <h2 className='m-2' style={{ fontSize: '35px', textAlign: 'center' }}>Login</h2>
