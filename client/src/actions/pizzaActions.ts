@@ -1,10 +1,11 @@
 import axios from "axios";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const getAllPizzas = () => async (dispatch: any) => {
   dispatch({ type: "GET-PIZZAS-REQUEST" });
 
   try {
-    const response = await axios.get("/api/pizzas/getallpizzas");
+    const response = await axios.get(`${apiUrl}/api/pizzas/getallpizzas`);
     dispatch({ type: "GET-PIZZAS-SUCCESS", payload: response.data });
   } catch (err) {
     dispatch({ type: "GET-PIZZAS-FAILED", payload: err });
@@ -18,7 +19,7 @@ export const getFilterPizzas =
     dispatch({ type: "GET-PIZZAS-REQUEST" });
 
     try {
-      const response = await axios.get("/api/pizzas/getallpizzas");
+      const response = await axios.get(`${apiUrl}/api/pizzas/getallpizzas`);
 
       filteredPizzas = response.data.filter((pizza: any) =>
         pizza.name.toLowerCase().includes(searchKey)
@@ -40,7 +41,7 @@ export const addPizza = (pizza: any) => async (dispatch: any) => {
   dispatch({ type: "ADD_PIZZA_REQUEST" });
 
   try {
-    const response = await axios.post("/api/pizzas/addpizza", { pizza });
+    const response = await axios.post(`${apiUrl}/api/pizzas/addpizza`, { pizza });
     console.log(response);
     dispatch({ type: "ADD_PIZZA_SUCCESS" });
   } catch (err) {
@@ -52,7 +53,7 @@ export const editPizza = (pizza: any) => async (dispatch: any) => {
   dispatch({ type: "EDIT_PIZZA_REQUEST" });
 
   try {
-    const response = await axios.put("/api/pizzas/editpizza", { pizza });
+    const response = await axios.put(`${apiUrl}/api/pizzas/editpizza`, { pizza });
     console.log(response);
     dispatch({ type: "EDIT_PIZZA_SUCCESS" });
     window.location.href = "/admin/pizzaslist";
@@ -63,7 +64,7 @@ export const editPizza = (pizza: any) => async (dispatch: any) => {
 
 export const deletePizza = (pizzaId: any) => async (dispatch: any) => {
   try {
-    const response = await axios.delete("/api/pizzas/deletepizza", {
+    const response = await axios.delete(`${apiUrl}/api/pizzas/deletepizza`, {
       params: {
         pizzaId,
       },

@@ -1,10 +1,11 @@
 import axios from "axios";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const registerUser = (user: any) => async (dispatch: any) => {
   dispatch({ type: "USER_REGISTER_REQUEST" });
 
   try {
-    const response = await axios.post("/api/users/register", user);
+    const response = await axios.post(`${apiUrl}/api/users/register`, user);
     console.log(response);
     dispatch({ type: "USER_REGISTER_SUCCESS" });
   } catch (error) {
@@ -16,7 +17,7 @@ export const loginUser = (user: any) => async (dispatch: any) => {
   dispatch({ type: "USER_LOGIN_REQUEST" });
 
   try {
-    const response = await axios.post("/api/users/login", user);
+    const response = await axios.post(`${apiUrl}/api/users/login`, user);
     dispatch({ type: "USER_LOGIN_SUCCESS", payload: response.data });
     localStorage.setItem("currentUser", JSON.stringify(response.data));
     window.location.href = "/";
@@ -34,7 +35,7 @@ export const getAllUsers = () => async (dispatch: any, getState: any) => {
   dispatch({ type: "GET_ALL_USERS_REQUEST" });
 
   try {
-    const response = await axios.get("/api/users/getallusers");
+    const response = await axios.get(`${apiUrl}/api/users/getallusers`);
     dispatch({ type: "GET_ALL_USERS_SUCCESS", payload: response.data });
   } catch (err) {
     dispatch({ type: "GET_ALL_USERS_FAILED", payload: err });
@@ -43,7 +44,7 @@ export const getAllUsers = () => async (dispatch: any, getState: any) => {
 
 export const deleteUser = (userId: any) => async (dispatch: any) => {
   try {
-    const response = await axios.delete("/api/users/deleteuser", {
+    const response = await axios.delete(`${apiUrl}/api/users/deleteuser`, {
       params: {
         userId,
       },

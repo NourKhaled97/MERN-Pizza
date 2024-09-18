@@ -19,7 +19,7 @@ app.use(
 
 app.use(
   cors({
-    origin: ["https://mern-pizza-two.vercel.app"],
+    origin: ["https://mern-pizza-two.vercel.app", "http://localhost:3000"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
