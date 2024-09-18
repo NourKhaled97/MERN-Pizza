@@ -29,7 +29,7 @@ export default function HomeScreen() {
                     : error ?
                         (<Error error="Something went wrong" />)
                         : (
-                            pizzas && pizzas.map((pizza: any) => {
+                            pizzas && Array.isArray(pizzas) && pizzas.map((pizza: any) => {
                                 return (
                                     <div key={pizza._id} className='col-md-6 col-lg-4'>
                                         <Pizza pizza={pizza} />

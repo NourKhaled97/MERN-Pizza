@@ -43,7 +43,7 @@ export default function Pizza(pizza: any) {
                 <div className='w-100 m-1'>
                     <p>Varients</p>
                     <select className='form-control' value={varient} onChange={(e) => setVarient(e.target.value)}>
-                        {pizza.pizza.varients.map((varient: string) => {
+                        {pizza.pizza.varients && Array.isArray(pizza.pizza.varients) && pizza.pizza.varients.map((varient: string) => {
                             return <option key={varient} value={varient}>{varient}</option>
                         })}
                     </select>

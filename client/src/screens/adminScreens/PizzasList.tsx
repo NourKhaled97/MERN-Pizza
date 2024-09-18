@@ -36,7 +36,7 @@ export default function PizzasList() {
           </thead>
 
           <tbody>
-            {pizzas && pizzas.map((pizza: any) => {
+            {pizzas && Array.isArray(pizzas) && pizzas.map((pizza: any) => {
               return (
                 <tr key={pizza._id}>
                   <td>{pizza.name}</td>

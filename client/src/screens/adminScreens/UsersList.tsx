@@ -34,7 +34,7 @@ export default function UsersList() {
           </thead>
 
           <tbody>
-            {users && users.map((user: any) => {
+            {users && Array.isArray(users) && users.map((user: any) => {
               return (
                 <tr key={user._id}>
                   <td>{user._id}</td>

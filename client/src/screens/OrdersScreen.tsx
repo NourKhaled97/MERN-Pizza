@@ -28,7 +28,7 @@ export default function OrdersScreen() {
                 {loading && <Loading />}
                 {error && <Error error='Something went wrong' />}
 
-                {orders && orders.map((order: any) => {
+                {orders && Array.isArray(orders) && orders.map((order: any) => {
                     return <div
                         data-aos='fade-down'
                         key={order._id}
@@ -39,7 +39,7 @@ export default function OrdersScreen() {
                             <div style={{ textAlign: 'left' }} className="w-100 m-1">
                                 <h2 style={{ fontSize: '25px' }}>Items</h2>
                                 <hr />
-                                {order.orderItems && order.orderItems.map((item: any) => {
+                                {order.orderItems && Array.isArray(order.orderItems) && order.orderItems.map((item: any) => {
                                     return <div key={item._id}>
                                         <p>{item.name} [{item.varient}] * {item.quantity} = {item.price}</p>
                                     </div>

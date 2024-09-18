@@ -22,7 +22,7 @@ export default function CartScreen() {
                 <div className="col-md-6">
                     <h2 style={{ fontSize: '40px' }}>My Cart</h2>
 
-                    {cartItems.map((cart: any) => {
+                    {cartItems && Array.isArray(cartItems) && cartItems.map((cart: any) => {
                         return (
                             <div key={cart._id}>
                                 <div className="flex-container">

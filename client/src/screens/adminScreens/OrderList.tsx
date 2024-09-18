@@ -36,7 +36,7 @@ export default function OrderList() {
           </thead>
 
           <tbody>
-            {orders && orders.map((order: any) => {
+            {orders && Array.isArray(orders) && orders.map((order: any) => {
               return (
                 <tr key={order._id}>
                   <td>{order._id}</td>
