@@ -1,7 +1,7 @@
 // entry point of BE
 require("dotenv").config();
 const express = require("express");
-const db = require("./db");
+const db = require("../db");
 const PizzasRoute = require("../routes/pizzasRoute");
 const UsersRoute = require("../routes/usersRoute");
 const OrdersRoute = require("../routes/ordersRoute");
