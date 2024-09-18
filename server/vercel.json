@@ -1,20 +1,4 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "*.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
-  ],
-  "build": {
-    "env": {
-      "NPM_FLAGS": "--legacy-peer-deps"
-    }
-  }
+  "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
 }

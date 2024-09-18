@@ -2,9 +2,9 @@
 require("dotenv").config();
 const express = require("express");
 const db = require("./db");
-const PizzasRoute = require("./routes/pizzasRoute");
-const UsersRoute = require("./routes/usersRoute");
-const OrdersRoute = require("./routes/ordersRoute");
+const PizzasRoute = require("../routes/pizzasRoute");
+const UsersRoute = require("../routes/usersRoute");
+const OrdersRoute = require("../routes/ordersRoute");
 const path = require("path");
 const cors = require("cors");
 
@@ -16,14 +16,17 @@ app.use(
     extended: true,
   })
 );
-// app.use(
-//   cors({
-//     origin: ["https://mern-pizza-two.vercel.app"],
-//     methods: ["POST", "GET", "PUT", "DELETE"],
-//     credentials: true,
-//   })
-// );
-// app.use(cors())
+
+app.use(
+  cors({
+    origin: ["https://mern-pizza-two.vercel.app"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+// app.use(cors());
+
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
 app.use("/api/pizzas", PizzasRoute);
 app.use("/api/users", UsersRoute);
